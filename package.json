@@ -1,0 +1,30 @@
+{
+  "name": "multer-storage-uploadcare",
+  "version": "0.0.0",
+  "description": "a multer storage engine for uploadcare",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vizeat/multer-storage-uploadcare.git"
+  },
+  "keywords": [
+    "multer",
+    "storage",
+    "uploadcare",
+    "file",
+    "upload"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vizeat/multer-storage-uploadcare/issues"
+  },
+  "homepage": "https://github.com/vizeat/multer-storage-uploadcare#readme",
+  "dependencies": {
+    "lodash": "^4.11.2",
+    "request": "^2.72.0"
+  }
+}
