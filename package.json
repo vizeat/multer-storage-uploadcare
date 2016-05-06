@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/vizeat/multer-storage-uploadcare#readme",
   "dependencies": {
-    "lodash": "^4.11.2",
+    "concat-stream": "^1.5.1",
     "request": "^2.72.0"
   }
 }

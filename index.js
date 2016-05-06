@@ -1,46 +1,46 @@
-var _ = require('lodash')
 var request = require('request')
+var concat = require('concat-stream')
 
 function UploadcareStorage (opts) {
   this.options = {
     public_key: null,
-    store: 1
+    private_key: null,
+    store: 'auto'
   }
-
-  _.assign(this.options, opts)
+  Object.assign(this.options, opts)
 }
 
 UploadcareStorage.prototype._handleFile = function _handleFile (req, file, cb) {
-  var formData = {
-    UPLOADCARE_PUB_KEY: this.options.public_key,
-    UPLOADCARE_STORE: this.options.store,
-    file: {
-      value: file.stream,
-      options: {
-        filename: file.filename,
-        contentType: file.mimetype,
-        knownLength: req.headers['content_length']
+  file.stream.pipe(concat((fileBuffer) => {
+    request.post({
+      url: 'https://upload.uploadcare.com/base/',
+      json: true,
+      formData: {
+        UPLOADCARE_PUB_KEY: this.options.public_key,
+        UPLOADCARE_STORE: this.options.store,
+        file: {
+          value: fileBuffer,
+          options: {
+            filename: file.originalname,
+            contentType: file.mimetype
+          }
+        }
       }
-    }
-  }
-
-  request.post({
-    url: 'https://upload.uploadcare.com/base/',
-    formData: formData
-  }, function _callback (err, httpResponse, body) {
-    if (err) {
-      console.error('upload failed:', err)
-      return cb(err)
-    }
-    console.log('Upload successful!  Server responded with:', body)
-    return cb(null, body)
-  })
+    }, function _createCallback (err, httpResponse, body) {
+      if (err) return cb(err)
+      return cb(null, { uploadcare_file_id: body.file })
+    })
+  }))
 }
 
 UploadcareStorage.prototype._removeFile = function _removeFile (req, file, cb) {
-  // TODO: implement
-  console.log('delete', file)
-  cb(null, {})
+  request.delete({
+    url: `https://api.uploadcare.com/files/${file.uploadcare_file_id}`,
+    Authorization: `Uploadcare.Simple ${this.options.public_key}:${this.options.private_key}`
+  }, function _deleteCallback (err, httpResponse, body) {
+    if (err) return cb(err)
+    return cb(null, body)
+  })
 }
 
 module.exports = function (opts) {
