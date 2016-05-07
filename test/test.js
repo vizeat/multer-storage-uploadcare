@@ -84,10 +84,3 @@ test.cb('failed remove', t => {
     t.end()
   })
 })
-
-
-test('bar', async t => {
-  const bar = Promise.resolve('bar')
-
-  t.is(await bar, 'bar')
-})
