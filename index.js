@@ -36,7 +36,8 @@ UploadcareStorage.prototype._handleFile = function _handleFile (req, file, cb) {
 UploadcareStorage.prototype._removeFile = function _removeFile (req, file, cb) {
   request.delete({
     url: `https://api.uploadcare.com/files/${file.uploadcare_file_id}`,
-    Authorization: `Uploadcare.Simple ${this.options.public_key}:${this.options.private_key}`
+    Authorization: `Uploadcare.Simple ${this.options.public_key}:${this.options.private_key}`,
+    json: true
   }, function _deleteCallback (err, httpResponse, body) {
     if (err) return cb(err)
     return cb(null, body)
