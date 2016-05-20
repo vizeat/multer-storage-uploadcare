@@ -15,8 +15,8 @@ An Uploadcare storage engine for multer
 const uploadcareStorage = require('multer-storage-uploadcare')
 const multer = require('multer', {
   storage: uploadcareStorage({
-    public_key: YOUR_UPLOADCARE_PRIVATE_KEY,
-    private_key: YOUR_UPLOADCARE_PUBLIC_KEY
+    public_key: YOUR_UPLOADCARE_PUBLIC_KEY,
+    private_key: YOUR_UPLOADCARE_PRIVATE_KEY
     store: 'auto' // 'auto' || 0 || 1
   })
 })
