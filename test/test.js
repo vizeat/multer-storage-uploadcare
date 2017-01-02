@@ -15,7 +15,7 @@ test.beforeEach(t => {
   file = {
     filename: 'osi.png',
     mimetype: 'image/png',
-    stream: fs.createReadStream('./osi.png')
+    stream: fs.createReadStream('./test/osi.png')
   }
 })
 
