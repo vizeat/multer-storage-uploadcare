@@ -36,6 +36,7 @@ test.cb('successful upload', t => {
 
   t.plan(2)
   ucStorage._handleFile(null, file, (err, res) => {
+    if (err) t.fail()
     t.truthy(upload.isDone())
     t.is(res.uploadcare_file_id, 'my_awesome_uuid')
     t.end()
@@ -63,6 +64,7 @@ test.cb('successful remove', t => {
 
   t.plan(4)
   ucStorage._removeFile(null, file, (err, res) => {
+    if (err) t.fail()
     t.truthy(api.isDone())
     t.is(res.uploadcare_file_id, 'my_awesome_uuid')
     t.is(res.filename, file.filename)
