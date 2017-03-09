@@ -1,6 +1,6 @@
 {
   "name": "multer-storage-uploadcare",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a multer storage engine for uploadcare",
   "main": "index.js",
   "scripts": {
