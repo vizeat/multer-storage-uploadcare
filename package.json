@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/vizeat/multer-storage-uploadcare#readme",
   "dependencies": {
-    "concat-stream": "^1.5.1",
-    "request": "^2.72.0"
+    "concat-stream": "^2.0.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "nock": "^9.0.0",
-    "nyc": "^11.2.1",
-    "standard": "^9.0.1"
+    "ava": "^1.4.1",
+    "nock": "^10.0.6",
+    "nyc": "^14.1.1",
+    "standard": "^12.0.1"
   }
 }
