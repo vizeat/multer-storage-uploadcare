@@ -1,9 +1,11 @@
 {
   "name": "multer-storage-uploadcare",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "a multer storage engine for uploadcare",
   "main": "index.js",
-  "engines" : { "node" : ">=6 <=12" },
+  "engines": {
+    "node": ">=6 <=12"
+  },
   "scripts": {
     "lint": "standard",
     "test": "ava --serial",
