@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "a multer storage engine for uploadcare",
   "main": "index.js",
+  "engines" : { "node" : ">=6 <=12" },
   "scripts": {
     "lint": "standard",
     "test": "ava --serial",
