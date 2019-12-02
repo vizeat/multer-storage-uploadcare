@@ -4,7 +4,7 @@
   "description": "a multer storage engine for uploadcare",
   "main": "index.js",
   "engines": {
-    "node": ">=6 <=12"
+    "node": ">=6"
   },
   "scripts": {
     "lint": "standard",
@@ -33,9 +33,9 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "ava": "^1.4.1",
-    "nock": "^10.0.6",
+    "ava": "^2.4.0",
+    "nock": "^11.7.0",
     "nyc": "^14.1.1",
-    "standard": "^12.0.1"
+    "standard": "^14.3.1"
   }
 }

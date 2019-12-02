@@ -30,7 +30,7 @@ test('Configuration', t => {
 })
 
 test.cb('successful upload', t => {
-  let upload = nock('https://upload.uploadcare.com')
+  const upload = nock('https://upload.uploadcare.com')
     .post('/base/')
     .reply(201, { file: 'my_awesome_uuid' })
 
@@ -44,7 +44,7 @@ test.cb('successful upload', t => {
 })
 
 test.cb('failed upload', t => {
-  let upload = nock('https://upload.uploadcare.com')
+  const upload = nock('https://upload.uploadcare.com')
     .post('/base/')
     .replyWithError('something awful happened')
 
@@ -58,7 +58,7 @@ test.cb('failed upload', t => {
 
 test.cb('successful remove', t => {
   file.uploadcare_file_id = 'my_awesome_uuid'
-  let api = nock('https://api.uploadcare.com')
+  const api = nock('https://api.uploadcare.com')
     .delete('/files/my_awesome_uuid')
     .reply(200, file)
 
@@ -75,7 +75,7 @@ test.cb('successful remove', t => {
 
 test.cb('failed remove', t => {
   file.uploadcare_file_id = 'my_awesome_uuid'
-  let api = nock('https://api.uploadcare.com')
+  const api = nock('https://api.uploadcare.com')
     .delete('/files/my_awesome_uuid')
     .replyWithError('something awful happened')
 

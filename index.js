@@ -1,5 +1,5 @@
-var request = require('request')
-var concat = require('concat-stream')
+const request = require('request')
+const concat = require('concat-stream')
 
 function UploadcareStorage (opts) {
   this.options = {
