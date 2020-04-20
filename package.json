@@ -33,7 +33,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^3.7.1",
     "nock": "^11.7.0",
     "nyc": "^15.0.0",
     "standard": "^14.3.1"
